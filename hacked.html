@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacked By Emin Sarsılmaz</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-image: url('https://media2.giphy.com/media/VdVwQxkrlOaKXswqw8/giphy.gif?cid=6c09b952542u7w1jt2c0u6n2x8yjbshfha90lt34s4o59hcw&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g'); /* GIF URL'sini ekleyin */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .content {
+            color: #ff3333;  /* Kırmızı renk */
+            font-size: 4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: glowing 2s ease-in-out infinite, textColor 5s infinite alternate;
+            text-shadow: 0 0 5px #ff3333, 0 0 10px #ff3333, 0 0 15px #ff3333, 0 0 20px #ff3333, 0 0 30px #ff3333, 0 0 40px #ff3333;
+        }
+
+        /* Parlama animasyonu */
+        @keyframes glowing {
+            0% { text-shadow: 0 0 5px #ff3333, 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 40px #ff3333, 0 0 80px #ff3333; }
+            50% { text-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 30px #ff3333, 0 0 50px #ff3333, 0 0 100px #ff3333; }
+            100% { text-shadow: 0 0 5px #ff3333, 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 40px #ff3333, 0 0 80px #ff3333; }
+        }
+
+        /* Renk geçişi animasyonu */
+        @keyframes textColor {
+            0% { color: #ff3333; }
+            50% { color: #ff6600; }
+            100% { color: #ff3333; }
+        }
+
+        /* Parlak yazılar için stil */
+        .footer-content {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            color: white;
+            font-size: 1.5rem; /* Yazı boyutunu küçük yaptım */
+            font-weight: bold;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff;
+            animation: glowingFooter 2s ease-in-out infinite, textColorFooter 5s infinite alternate;
+            letter-spacing: 2px;
+        }
+
+        /* Footer yazısının parlama animasyonu */
+        @keyframes glowingFooter {
+            0% { text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff, 0 0 80px #ffffff; }
+            50% { text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 50px #ffffff, 0 0 100px #ffffff; }
+            100% { text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff, 0 0 80px #ffffff; }
+        }
+
+        /* Footer yazısının renk geçişi animasyonu */
+        @keyframes textColorFooter {
+            0% { color: #ffffff; }
+            50% { color: #0000ff; }  /* Mavi renk */
+            100% { color: #ffffff; }
+        }
+
+        @media (max-width: 600px) {
+            .content {
+                font-size: 2.5rem; /* Küçük ekranlar için yazı boyutu küçültülür */
+            }
+            .footer-content {
+                font-size: 1.2rem; /* Küçük ekranlar için footer yazısı boyutu küçültülür */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        Hacked<br>By Emin Sarsılmaz
+    </div>
+    <!-- Footer yazıları -->
+    <div class="footer-content">
+        Root Team & Sarsılmaz Team
+    </div>
+</body>
+</html>
