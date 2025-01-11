@@ -10,16 +10,18 @@
             margin: 0;
             font-family: 'Arial', sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background-image: url('https://media2.giphy.com/media/VdVwQxkrlOaKXswqw8/giphy.gif?cid=6c09b952542u7w1jt2c0u6n2x8yjbshfha90lt34s4o59hcw&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g'); /* GIF URL'sini ekleyin */
+            background-image: url('https://media2.giphy.com/media/VdVwQxkrlOaKXswqw8/giphy.gif?cid=6c09b952542u7w1jt2c0u6n2x8yjbshfha90lt34s4o59hcw&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
         }
 
         .content {
-            color: #ff3333;  /* Kırmızı renk */
+            color: #ff3333;
             font-size: 4rem;
             font-weight: bold;
             text-transform: uppercase;
@@ -42,24 +44,25 @@
             100% { color: #ff3333; }
         }
 
-        /* Footer yazıları için stil (parlak olmayan şekilde) */
+        /* Footer yazıları için stil */
         .footer-content {
-            position: absolute;
+            position: fixed;
             bottom: 10px;
             width: 100%;
-            color: white; /* Beyaz renk */
-            font-size: 1.5rem; /* Yazı boyutunu küçük yaptım */
+            color: white;
+            font-size: 1.5rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-shadow: 0 0 5px #000000;
         }
 
         @media (max-width: 600px) {
             .content {
-                font-size: 2.5rem; /* Küçük ekranlar için yazı boyutu küçültülür */
+                font-size: 2.5rem;
             }
             .footer-content {
-                font-size: 1.2rem; /* Küçük ekranlar için footer yazısı boyutu küçültülür */
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -68,7 +71,6 @@
     <div class="content">
         Hacked<br>By Emin Sarsılmaz
     </div>
-    <!-- Footer yazıları -->
     <div class="footer-content">
         Root Team & Sarsılmaz Team
     </div>
