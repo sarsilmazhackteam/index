@@ -42,32 +42,16 @@
             100% { color: #ff3333; }
         }
 
-        /* Parlak yazılar için stil */
+        /* Footer yazıları için stil (parlak olmayan şekilde) */
         .footer-content {
             position: absolute;
             bottom: 10px;
             width: 100%;
-            color: white;
+            color: white; /* Beyaz renk */
             font-size: 1.5rem; /* Yazı boyutunu küçük yaptım */
             font-weight: bold;
             text-transform: uppercase;
-            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff;
-            animation: glowingFooter 2s ease-in-out infinite, textColorFooter 5s infinite alternate;
             letter-spacing: 2px;
-        }
-
-        /* Footer yazısının parlama animasyonu */
-        @keyframes glowingFooter {
-            0% { text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff, 0 0 80px #ffffff; }
-            50% { text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 50px #ffffff, 0 0 100px #ffffff; }
-            100% { text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff, 0 0 80px #ffffff; }
-        }
-
-        /* Footer yazısının renk geçişi animasyonu */
-        @keyframes textColorFooter {
-            0% { color: #ffffff; }
-            50% { color: #0000ff; }  /* Mavi renk */
-            100% { color: #ffffff; }
         }
 
         @media (max-width: 600px) {
